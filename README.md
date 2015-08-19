@@ -4,10 +4,10 @@ Simple photo file utility
 ## Usage:
 
 
-|OS|command|
-|--------|-----------------------------------------------------|
-|Windows | python move_files-to_date_folders.py|
-|Linux   | ./move_files-to_date_folders.py|
+|OS|command|status|
+|--------|-----------------------------------------------------|----|
+|Windows | python move_files-to_date_folders.py|Working|
+|Linux   | ./move_files-to_date_folders.py|Untested|
 
 ## Effects
 
