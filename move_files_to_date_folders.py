@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 ################################################
 # Copyright (c) Avi Silver 2015
 # Recursively move all photographs from subdirectories into folders
@@ -18,7 +18,7 @@ directory = '.'
 matches = []
 for root, dirs, files in os.walk(directory):
     for filename in files:
-        if filename.lower().endswith(('.jpg', '.jpeg', '.gif', '.png', '.avi')):
+        if filename.lower().endswith(('.jpg', '.jpeg', '.gif', '.png', '.avi', '.mp4')):
             full_name = os.path.join(root, filename)
             if os.path.isfile(full_name):
                 matches += [full_name]
@@ -29,7 +29,7 @@ date_format = """%04d-%02d-%02d"""
 
 for full_name in matches:
     base_name = ntpath.basename(full_name)
-    print(full_name, base_name)
+    print((full_name, base_name))
     ftime = time.gmtime(os.path.getmtime(full_name))
     #ctime_dir = str(ftime.tm_year) + '-' + str(ftime.tm_mon) + '-' + str(ftime.tm_mday)
     ctime_dir = date_format % (ftime.tm_year, ftime.tm_mon, ftime.tm_mday)
@@ -39,10 +39,10 @@ for full_name in matches:
     dst = os.path.join(ctime_dir, base_name)
 
     if os.path.realpath(full_name) == os.path.realpath(dst):
-        print('Skipping file' , full_name)
+        print(('Skipping file' , full_name))
     else:
         shutil.move(full_name, dst)
-        print('File' , full_name , 'has been moved to' , dst)
+        print(('File' , full_name , 'has been moved to' , dst))
         
 
 
