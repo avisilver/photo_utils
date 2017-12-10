@@ -18,7 +18,7 @@ directory = '.'
 matches = []
 for root, dirs, files in os.walk(directory):
     for filename in files:
-        if filename.lower().endswith(('.jpg', '.jpeg', '.gif', '.png', '.avi', '.mp4')):
+        if filename.lower().endswith(('.jpg', '.jpeg', '.gif', '.png', '.avi', '.mp4', '.thm', '.mov')):
             full_name = os.path.join(root, filename)
             if os.path.isfile(full_name):
                 matches += [full_name]
